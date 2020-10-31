@@ -13,5 +13,4 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   url: postgresURL,
   entities: [__dirname + './../**/*.entity.{js,ts}'],
   synchronize: process.env.NODE_ENV !== 'production',
-  ssl: process.env.NODE_ENV === 'production',
 };
