@@ -11,6 +11,6 @@ if (process.env.NODE_ENV === 'production') {
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   url: postgresURL,
-  entities: [__dirname + '/../**/*.entity.{js,ts}'],
+  entities: [__dirname + './../**/*.entity.{js,ts}'],
   synchronize: process.env.NODE_ENV !== 'production',
 };
