@@ -1,12 +1,16 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
+let postgresURL: string;
+
+if (process.env.NODE_ENV === 'production') {
+  postgresURL = process.env.DATABASE_URL;
+} else {
+  postgresURL = 'postgres://postgres:@localhost/taskmanagement';
+}
+
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: '',
-  database: 'taskmanagement',
+  url: postgresURL,
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  synchronize: true,
+  synchronize: process.env.NODE_ENV !== 'production',
 };
