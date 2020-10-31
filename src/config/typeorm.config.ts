@@ -6,7 +6,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     process.env.DATABASE_URL || 'postgres://postgres:@localhost/taskmanagement',
   entities: [__dirname + './../**/*.entity.{js,ts}'],
   synchronize: true,
-  // ssl: {
-  //   rejectUnauthorized: false,
-  // },
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
